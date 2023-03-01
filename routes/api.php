@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/users', function (Request $request) {
+//    return $request->user();
+//
+//});
+
+Route::namespace('Api')->prefix('v1')->middleware('cors')->group(function () {
+    Route::get('/users', 'UserController@index')->name('users.index');
+
+    Route::post('/users', 'UserController@store')->name('users.store');
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::get('/users/{user}', 'UserController@show')->name('users.show');
+    Route::post('login', 'UserController@login')->name('users.login');
+
 });
