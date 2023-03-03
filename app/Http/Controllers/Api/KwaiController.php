@@ -19,10 +19,10 @@ class KwaiController extends Controller
 //        print_r($kwailog->toArray());
         if ($kwailog->save()) {
             $callback = $request->query('callback');
-            $event_id = $request->query('event_id');
+//            $event_id = $request->query('event_id');
             $timestamp = time();
-            $callback_url = "https://k.kuaishou.com/rest/web/task/debug/track/activate?callback=$callback&event_type=$event_id&event_time=$timestamp";
-            $resp = Http::get($callback_url);
+//            $callback_url = "https://k.kuaishou.com/rest/web/task/debug/track/activate?callback=$callback&event_type=$event_id&event_time=$timestamp";
+            $resp = Http::get($callback);
             return $resp;
 //            return redirect($callback_url);
 
