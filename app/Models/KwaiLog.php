@@ -9,7 +9,6 @@ class KwaiLog extends Model
     //
     protected $table = 'kuaishou';
 
-    protected $fillable = ['*'];
     protected $guarded = [];
 
 }
