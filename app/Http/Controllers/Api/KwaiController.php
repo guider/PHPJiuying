@@ -15,8 +15,7 @@ class KwaiController extends Controller
 
         print_r($request->query());
 
-        $kwailog = new KwaiLog();
-        $kwailog->fill($request->query());
+        $kwailog = new KwaiLog($request->query());
         $kwailog->raw_data = $request->getContent();
         print_r($kwailog->toArray());
         $kwailog->save();
