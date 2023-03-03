@@ -13,9 +13,8 @@ class KwaiController extends Controller
     public function monitor(Request $request)
     {
 
-        print_r(type($request->query()));
         print_r($request->query('imei'));
-        $kwailog = new KwaiLog($request->query());
+        $kwailog = new KwaiLog($request->all());
 
         $kwailog->raw_data = $request->getContent();
         print_r($kwailog->toArray());
