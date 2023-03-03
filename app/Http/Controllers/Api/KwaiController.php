@@ -14,6 +14,8 @@ class KwaiController extends Controller
     {
 
         print_r($request->query('imei'));
+        print_r($request->query());
+        print_r($request->all());
         $kwailog = new KwaiLog($request->all());
 
         $kwailog->raw_data = $request->getContent();
