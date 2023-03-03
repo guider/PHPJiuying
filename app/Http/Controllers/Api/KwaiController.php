@@ -22,6 +22,7 @@ class KwaiController extends Controller
             $event_id = $request->query('event_id');
             $timestamp = time();
             $callback_url = "https://k.kuaishou.com/rest/web/task/debug/track/activate?callback=$callback&event_type=$event_id&event_time=$timestamp";
+            print_r($callback_url);
             $resp = Http::get($callback_url);
             return $resp;
 //            return redirect($callback_url);
